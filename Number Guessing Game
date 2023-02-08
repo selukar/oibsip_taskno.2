@@ -1,0 +1,52 @@
+package Guess;
+import java.util.Scanner;
+public class NumberGuessingGame 
+{
+	public static void main(String args[])
+	{
+		int attempts = 1;
+		int g = 0 , score = 0;
+		int o_n = (int)(Math.random()*99+1);
+		System.out.println("Number Guessing Game");
+		System.out.println("Guess a Number Betweem 1 to 100 \n");
+		Scanner sc = new Scanner(System.in);
+		while (true)
+		{
+			if (sc.hasNextInt());
+			{
+				g = sc.nextInt();
+				if(g == o_n)
+				{
+					score = score+10;
+					System.out.println("Congrarulations - You guessed the number");
+					System.out.println("Your Score is " + score + " and you guessed it in " + attempts +"attempts");
+					break;
+				}
+				else if(g < o_n)
+				{
+					System.out.println("Your Guess is too small!");
+					System.out.println("Your attempts left are = " +(10-attempts));
+					score--;
+				}
+				else if(g > o_n)
+				{
+					System.out.println("Your Guess is too High!");
+					System.out.println("Attemps remaning = " +(10-attempts));
+					score--;
+				}
+				else if(attempts == 10)
+				{
+					System.out.println("Your have exceeded the maximum number of attemptes.");
+					System.out.println("Better luck next Time!");
+					break;
+				}
+				else  
+				{
+					System.out.println("Enter a valid Number");
+				}
+				attempts++;
+			}
+		
+		}
+	}
+}
